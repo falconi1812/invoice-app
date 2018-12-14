@@ -5,7 +5,7 @@ echo "Image is now available for use"
 
 echo "Running image"
 
-docker run --name=invoice_app -p 49160:8081 -d falconi/invoice-app
+docker run --name=invoice_app -v "$PWD":/usr/src/app -p 49160:8081 -d falconi/invoice-app
 
 echo "Everything is done now, go and enjoy coding!"
 

@@ -5,21 +5,28 @@
   "description": "a Sails application",
   "keywords": [],
   "dependencies": {
-    "sails": "^1.1.0",
+    "@sailshq/connect-redis": "^3.2.1",
+    "@sailshq/lodash": "^3.10.3",
+    "@sailshq/socket.io-redis": "^5.2.0",
+    "db-migrate": "^0.11.4",
+    "forever": "^0.15.3",
     "grunt": "1.0.1",
+    "sails": "^1.1.0",
+    "sails-hook-autoreload": "1.1.0",
     "sails-hook-grunt": "^3.1.0",
     "sails-hook-orm": "^2.1.1",
     "sails-hook-sockets": "^1.5.5",
-    "@sailshq/connect-redis": "^3.2.1",
-    "@sailshq/socket.io-redis": "^5.2.0",
-    "@sailshq/lodash": "^3.10.3"
+    "sails-hook-swagger-generator": "^2.7.0",
+    "sails-mysql": "^1.0.1"
   },
   "devDependencies": {
-    "@sailshq/eslint": "^4.19.3"
+    "@sailshq/eslint": "^4.19.3",
+    "swagger-ui": "^2.2.10"
   },
   "scripts": {
     "start": "node app.js --port=8081",
-    "test": "npm run lint && npm run custom-tests && echo 'Done.'",
+    "always-sails": "forever ./app.js -c node --harmony --port=8081",
+    "test": "npm run lintd && npm run custom-tests && echo 'Done.'",
     "lint": "eslint . --max-warnings=0 --report-unused-disable-directives && echo '✔  Your .js files look good.'",
     "custom-tests": "echo \"(No other custom tests yet.)\" && echo"
   },

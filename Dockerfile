@@ -16,7 +16,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
+# External entry port
 EXPOSE 8081
 
-CMD [ "npm", "start" ]
-#CMD [ "npm", "install sails -g"]
+# Start with always sails for local env
+CMD ["npm", "run-script", "always-sails"]
